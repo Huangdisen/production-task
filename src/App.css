@@ -1,0 +1,251 @@
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  color: #333;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.task-editor, .task-list {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.input-with-select {
+  display: flex;
+  gap: 10px;
+}
+
+.history-select {
+  flex: 1;
+  min-width: 150px;
+}
+
+.new-input {
+  flex: 2;
+}
+
+.remarks-input {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.task-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.task-list-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.submit-btn {
+  background: #1890ff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.submit-btn:hover {
+  background: #40a9ff;
+}
+
+.delete-btn {
+  background: #ff4d4f;
+  color: white;
+  border: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ff7875;
+}
+
+.initialize-btn {
+  background: #faad14;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.initialize-btn:hover {
+  background: #ffc53d;
+}
+
+.print-btn {
+  background: #52c41a;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+}
+
+.print-btn:hover {
+  background: #73d13d;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #fafafa;
+  font-weight: 500;
+}
+
+/* 美化下拉框和输入框 */
+select {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #40a9ff;
+  box-shadow: 0 0 0 2px rgba(24,144,255,0.2);
+}
+
+/* 空数据提示 */
+tbody:empty::after {
+  content: "暂无任务数据";
+  display: table-cell;
+  text-align: center;
+  padding: 20px;
+  color: #999;
+  font-size: 14px;
+}
+
+/* 打印样式 */
+@media print {
+  .app {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .header {
+    margin-bottom: 20px;
+  }
+
+  .task-editor,
+  .task-list-buttons,
+  .delete-btn {
+    display: none !important;
+  }
+
+  .main {
+    display: block;
+  }
+
+  .task-list {
+    box-shadow: none;
+    padding: 0;
+  }
+
+  .task-list-header {
+    margin-bottom: 10px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    page-break-inside: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    font-size: 12px;
+  }
+
+  th {
+    background-color: #f0f0f0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  /* 添加页脚 */
+  @page {
+    margin: 2cm;
+  }
+
+  /* 打印预览时隐藏空数据提示 */
+  tbody:empty::after {
+    display: none;
+  }
+
+  .action-column {
+    display: none !important;
+  }
+} 
