@@ -2,28 +2,25 @@
 
 一个简单的生产任务管理系统，支持添加、删除任务，并提供打印功能。
 
-## Docker 使用说明
+## 部署方式
 
-### 方式一：使用 docker-compose（推荐）
+### 方式一：Vercel 部署（推荐）
 
-1. 确保已安装 Docker 和 docker-compose
-2. 在项目目录下运行：
-   ```bash
-   docker-compose up -d
-   ```
-3. 打开浏览器访问：http://localhost:8080
+1. 在 GitHub 上创建仓库并推送代码
+2. 访问 [Vercel](https://vercel.com) 并使用 GitHub 账号登录
+3. 点击 "New Project"，选择刚才创建的 GitHub 仓库
+4. 保持默认配置，点击 "Deploy" 开始部署
+5. 部署完成后，Vercel 会提供一个可访问的域名
+6. （可选）可以在 Vercel 项目设置中添加自定义域名
 
-### 方式二：直接使用 Docker
+部署完成后，您可以：
+- 通过 Vercel 提供的域名访问应用
+- 每次推送代码到 GitHub 时自动重新部署
+- 在 Vercel 仪表板中查看部署历史和性能数据
 
-1. 构建镜像：
-   ```bash
-   docker build -t production-task .
-   ```
-2. 运行容器：
-   ```bash
-   docker run -d -p 8080:80 production-task
-   ```
-3. 打开浏览器访问：http://localhost:8080
+### 方式二：静态文件部署
+
+请参考 `Windows使用说明.md` 文件，了解如何在本地部署和运行。
 
 ## 数据说明
 
